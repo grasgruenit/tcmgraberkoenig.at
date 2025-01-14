@@ -1,0 +1,20 @@
+{{ define "main" -}}
+<div class="posts">
+{{ range .Site.RegularPages -}}
+<article class="post" style="min-height:100vh;">
+  {{ if .Title }}
+  <h1 class="post-title" id="{{ .File.BaseFileName }}">
+  <br>
+  {{ .Title }}
+  </h1>
+  {{ end }}
+  {{ .Content }}
+
+{{ with .PrevInSection }}
+  <a href="#{{ .File.BaseFileName }}"><hr style="width:48%;display:inline-block;vertical-align: middle;"> <i class="fa-solid fa-angles-down"></i> <hr style="width:48%;display:inline-block;vertical-align: middle;"></a>
+{{ end }}
+
+</article>
+{{- end }}
+</div>
+{{- end }}
